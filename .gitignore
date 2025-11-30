@@ -75,3 +75,6 @@ iOSInjectionProject/
 
 # OS X
 .DS_Store
+
+# Large Media Files
+*.mp4
