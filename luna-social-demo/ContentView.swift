@@ -1,21 +1,21 @@
-//
-//  ContentView.swift
-//  luna-social-demo
-//
-//  Created by Nirmal Patel on 29/11/25.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isLoading = true
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            if isLoading {
+                LoadingView(isActive: $isLoading)
+                    .transition(.opacity)
+                    .zIndex(1)
+            } else {
+                // Entry point now shows the bottom tab bar (Feed is first tab)
+                BottomTabBarView()
+                    .transition(.opacity)
+                    .zIndex(0)
+            }
         }
-        .padding()
     }
 }
 
